@@ -16,19 +16,40 @@
   if (hs) {
     const points = $$(".hotspot", hs);
     let current = 0;
+    const dots = $$("[data-hs-dot]", hs);
+    const panel = $(".hotspots__panel", hs);
     const show = (i) => {
       current = (i + points.length) % points.length;
       const p = points[current];
       points.forEach((b) => b.classList.toggle("is-active", b === p));
+      dots.forEach((d, k) => d.classList.toggle("is-active", k === current));
       $("[data-hs-num]", hs).textContent = current + 1;
       $("[data-hs-title]", hs).textContent = p.dataset.title;
       $("[data-hs-text]", hs).textContent = p.dataset.text;
       $("[data-hs-link]", hs).href = p.dataset.link;
       $("[data-hs-link-text]", hs).textContent = p.dataset.linkText;
+      // Petite animation d'entrée du texte
+      panel.classList.remove("is-changing");
+      void panel.offsetWidth;
+      panel.classList.add("is-changing");
     };
-    points.forEach((p, i) => p.addEventListener("click", () => show(i)));
-    $("[data-hs-prev]", hs).addEventListener("click", () => show(current - 1));
-    $("[data-hs-next]", hs).addEventListener("click", () => show(current + 1));
+    // L'indice « Touchez les points » disparaît dès la première interaction
+    const used = () => hs.classList.add("is-used");
+    points.forEach((p, i) => p.addEventListener("click", () => { used(); show(i); }));
+    dots.forEach((d, i) => d.addEventListener("click", () => { used(); show(i); }));
+    $("[data-hs-prev]", hs).addEventListener("click", () => { used(); show(current - 1); });
+    $("[data-hs-next]", hs).addEventListener("click", () => { used(); show(current + 1); });
+
+    // Glisser le doigt à gauche / à droite pour changer de point
+    let x0 = null, y0 = null;
+    hs.addEventListener("touchstart", (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+    hs.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      const dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) { used(); show(current + (dx < 0 ? 1 : -1)); }
+      x0 = y0 = null;
+    }, { passive: true });
   }
 
   /* ---------- 2. Simulateur de film anti-chaleur ---------- */

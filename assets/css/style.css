@@ -863,3 +863,38 @@ p { margin: 0 0 1em; }
   .sim__kpis b { font-size: 1.3rem; }
   .est-range output { min-width: 90px; font-size: 1.25rem; }
 }
+
+/* ---------- Photo à points : compléments ---------- */
+.hotspot::after { content: ""; position: absolute; inset: -12px; border-radius: 50%; } /* zone tactile agrandie */
+.hotspots__hint {
+  position: absolute; right: 14px; bottom: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px;
+  background: rgba(11, 11, 11, 0.78); color: var(--white);
+  font-size: 0.82rem; font-weight: 600; white-space: nowrap; pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.hotspots__hint svg { width: 18px; height: 18px; animation: tap 1.6s var(--ease) infinite; }
+@keyframes tap { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px) scale(0.92); } }
+.hotspots.is-used .hotspots__hint { opacity: 0; transform: translateY(8px); }
+.hotspots__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.hotspots__top .hotspots__count { margin: 0; }
+.hotspots__dots { display: flex; gap: 6px; }
+.hotspots__dots button { width: 22px; height: 4px; padding: 0; border: 0; border-radius: 4px; background: var(--line); transition: background 0.3s, width 0.3s var(--ease); position: relative; }
+.hotspots__dots button::after { content: ""; position: absolute; inset: -12px -2px; } /* zone tactile */
+.hotspots__dots button.is-active { background: var(--brand); width: 36px; }
+.hotspots__foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
+.hotspots__foot .hotspots__nav { margin-top: 0; }
+.hotspots__panel.is-changing h3, .hotspots__panel.is-changing p { animation: hsIn 0.45s var(--ease); }
+@keyframes hsIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 760px) {
+  .hotspots { border-radius: 14px; }
+  .hotspots__media img { aspect-ratio: 4 / 3.3; }
+  .hotspot { width: 34px; height: 34px; font-size: 0.85rem; }
+  .hotspots__panel { padding: 22px 20px 24px; }
+  .hotspots__panel h3 { font-size: 1.45rem; margin-bottom: 8px; }
+  .hotspots__panel p { font-size: 0.98rem; margin-bottom: 14px; }
+  .hotspots__foot .link-arrow { padding: 8px 0; }
+  .hotspots__btn { width: 44px; height: 44px; }
+}
