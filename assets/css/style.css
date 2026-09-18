@@ -898,3 +898,30 @@ p { margin: 0 0 1em; }
   .hotspots__foot .link-arrow { padding: 8px 0; }
   .hotspots__btn { width: 44px; height: 44px; }
 }
+
+/* ---------- Cartes services : version compacte sur mobile ---------- */
+@media (max-width: 760px) {
+  .service-card {
+    display: grid;
+    grid-template-columns: 46px 1fr 22px;
+    grid-template-areas: "icon num arrow" "icon title arrow" "icon text arrow";
+    column-gap: 14px;
+    align-items: start;
+    padding: 18px 16px;
+    min-height: 0;
+  }
+  .service-card::before { display: none; } /* pas d'effet de survol « collant » au toucher */
+  .service-card__icon {
+    grid-area: icon; width: 46px; height: 46px; margin: 0; padding: 11px;
+    border-radius: 50%; background: #eaf1ec; color: var(--brand);
+  }
+  .service-card__num { grid-area: num; margin: 0 0 2px; font-size: 0.78rem; line-height: 1.2; }
+  .service-card h3 { grid-area: title; font-size: 1.12rem; margin: 0 0 4px; }
+  .service-card p { grid-area: text; font-size: 0.9rem; line-height: 1.5; margin: 0; }
+  .service-card .link-arrow { grid-area: arrow; align-self: center; font-size: 0; gap: 0; padding: 0; color: var(--brand); }
+  .service-card .link-arrow svg { width: 20px; height: 20px; }
+  .service-card:hover h3, .service-card:active h3 { color: var(--ink); }
+  .service-card:hover p, .service-card:active p { color: var(--muted); }
+  .service-card:hover .service-card__icon, .service-card:hover .link-arrow { color: var(--brand); }
+  .service-card:active { background: var(--paper); }
+}
