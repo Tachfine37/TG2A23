@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact & devis gratuit — TG2A Casablanca</title>
-<meta name="description" content="Contactez TG2A au 46, La Rose III, Maârif, Casablanca. Tél : 0661-10-65-90 / 0621-42-44-00. Devis gratuit sous 48 h.">
+<meta name="description" content="Contactez TG2A au 46, La Rose III, Maârif, Casablanca. Tél : 0661-10-65-90 / 0621-42-44-00. Estimation express et devis gratuit sous 48 h.">
 <meta name="theme-color" content="#111111">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact & devis gratuit — TG2A Casablanca">
-<meta property="og:description" content="Contactez TG2A au 46, La Rose III, Maârif, Casablanca. Tél : 0661-10-65-90 / 0621-42-44-00. Devis gratuit sous 48 h.">
+<meta property="og:description" content="Contactez TG2A au 46, La Rose III, Maârif, Casablanca. Tél : 0661-10-65-90 / 0621-42-44-00. Estimation express et devis gratuit sous 48 h.">
 <meta property="og:image" content="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=75">
 <meta property="og:locale" content="fr_MA">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -58,7 +58,71 @@
     <div class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Contact</span></div>
     <span class="eyebrow">Contact</span>
     <h1>Parlons de votre projet.</h1>
-    <p>Remplissez le formulaire ou appelez-nous : un chargé d'affaires vous recontacte sous 48 h pour une visite et un devis gratuits.</p>
+    <p>Estimez votre budget en 30 secondes, puis envoyez-nous votre demande : un chargé d'affaires vous recontacte sous 48 h pour une visite et un devis gratuits.</p>
+  </div>
+</section>
+
+
+<section class="section section--paper" id="estimation" style="scroll-margin-top:90px">
+  <div class="container">
+    <div class="section-head">
+      <div class="reveal">
+        <span class="eyebrow">Estimation express</span>
+        <h2>Votre budget en 30 secondes.</h2>
+      </div>
+      <p class="lead reveal reveal-delay-1">Répondez à 4 questions pour obtenir une fourchette de prix et de délai. Gratuit, sans engagement, sans inscription.</p>
+    </div>
+    <div class="estimator reveal" data-estimator>
+      <form class="estimator__form" onsubmit="return false">
+        <fieldset class="est-step">
+          <legend><span>1</span> Type d'espace</legend>
+          <div class="chips">
+            <label><input type="radio" name="e-type" value="bureaux" checked><span>Bureaux</span></label>
+            <label><input type="radio" name="e-type" value="commerce"><span>Commerce / CHR</span></label>
+            <label><input type="radio" name="e-type" value="residentiel"><span>Appartement / villa</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="est-step">
+          <legend><span>2</span> Surface</legend>
+          <div class="est-range">
+            <input type="range" name="e-surface" min="20" max="2000" step="10" value="200" aria-label="Surface en m²">
+            <output data-est-surface>200 m²</output>
+          </div>
+        </fieldset>
+        <fieldset class="est-step">
+          <legend><span>3</span> Prestations souhaitées</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="e-prest" value="cle" checked><span>Aménagement clé en main (tout compris)</span></label>
+            <label><input type="checkbox" name="e-prest" value="cloisons"><span>Cloisons vitrées</span></label>
+            <label><input type="checkbox" name="e-prest" value="plafonds"><span>Faux plafonds & éclairage</span></label>
+            <label><input type="checkbox" name="e-prest" value="sols"><span>Revêtements de sol</span></label>
+            <label><input type="checkbox" name="e-prest" value="peinture"><span>Peinture & finitions</span></label>
+            <label><input type="checkbox" name="e-prest" value="menuiserie"><span>Menuiserie sur mesure</span></label>
+            <label><input type="checkbox" name="e-prest" value="elec"><span>Électricité & climatisation</span></label>
+            <label><input type="checkbox" name="e-prest" value="film"><span>Film anti-chaleur</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="est-step">
+          <legend><span>4</span> Délai souhaité</legend>
+          <div class="chips">
+            <label><input type="radio" name="e-delai" value="urgent"><span>Dès que possible</span></label>
+            <label><input type="radio" name="e-delai" value="normal" checked><span>Dans 1 à 3 mois</span></label>
+            <label><input type="radio" name="e-delai" value="flexible"><span>Pas pressé</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <aside class="est-result" aria-live="polite">
+        <span class="est-result__label">Budget indicatif</span>
+        <p class="est-result__price" data-est-price>—</p>
+        <p class="est-result__unit">MAD HT</p>
+        <div class="est-result__row"><span>Durée des travaux</span><b data-est-duree>—</b></div>
+        <div class="est-result__row"><span>Surface</span><b data-est-surf2>—</b></div>
+        <p class="est-result__note" data-est-note></p>
+        <button type="button" class="btn btn--primary" data-est-devis>Recevoir mon devis précis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button type="button" class="btn btn--ghost" data-est-wa><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 000-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></svg> Envoyer sur WhatsApp</button>
+        <p class="est-result__legal">Estimation indicative basée sur des prix moyens constatés, hors mobilier et études spécifiques. Seul le devis établi après visite gratuite engage TG2A.</p>
+      </aside>
+    </div>
   </div>
 </section>
 
@@ -165,7 +229,7 @@
   </div>
 </footer>
 <a class="whatsapp" href="https://wa.me/212661106590?text=Bonjour%20TG2A%2C%20je%20souhaite%20un%20devis." target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.8-1.4a.5.5 0 000-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></svg></a>
-
+<script src="assets/js/interactive.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
